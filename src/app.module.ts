@@ -6,6 +6,12 @@ import { BookmarkModule } from './bookmark/bookmark.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [ConfigModule, AuthModule, UserModule, BookmarkModule, PrismaModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env.dev' }),
+    AuthModule,
+    UserModule,
+    BookmarkModule,
+    PrismaModule,
+  ],
 })
 export class AppModule {}
